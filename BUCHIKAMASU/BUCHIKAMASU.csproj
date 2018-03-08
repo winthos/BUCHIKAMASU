@@ -337,6 +337,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\PunchController.cs" />
+    <Compile Include="Assets\PunchSoundController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
