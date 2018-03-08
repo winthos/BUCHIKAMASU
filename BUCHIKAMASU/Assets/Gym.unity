@@ -522,6 +522,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4503939336619982, guid: 46d30070039e7cd46a59f8f4cbe3165f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d30070039e7cd46a59f8f4cbe3165f, type: 2}
   m_IsPrefabParent: 0
@@ -717,7 +721,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4978358163853770, guid: 46d30070039e7cd46a59f8f4cbe3165f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.28100002
+      value: -0.281
       objectReference: {fileID: 0}
     - target: {fileID: 4978358163853770, guid: 46d30070039e7cd46a59f8f4cbe3165f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1046,6 +1050,8 @@ GameObject:
   - component: {fileID: 1828175200}
   - component: {fileID: 1828175199}
   - component: {fileID: 1828175198}
+  - component: {fileID: 1828175202}
+  - component: {fileID: 1828175203}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1116,6 +1122,41 @@ Transform:
   m_Father: {fileID: 2109987377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828175202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828175197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0.75
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
+--- !u!114 &1828175203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828175197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 82076f5e97cfe824bb7230d8c1274c93, type: 2}
 --- !u!1 &2050446188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1315,7 @@ GameObject:
   - component: {fileID: 2109987378}
   - component: {fileID: 2109987381}
   - component: {fileID: 2109987380}
+  - component: {fileID: 2109987382}
   m_Layer: 0
   m_Name: GlovesCamera
   m_TagString: MainCamera
@@ -1328,7 +1370,7 @@ Camera:
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1368,3 +1410,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2109987382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109987376}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 82076f5e97cfe824bb7230d8c1274c93, type: 2}
