@@ -31,7 +31,7 @@ public class PunchSoundController : MonoBehaviour
     public void PlayJab()
     {
         JabSource.pitch = Random.Range(0.9f, 1.2f);
-
+        //vibrate controller here
         JabSource.Play();
     }
 
