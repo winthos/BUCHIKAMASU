@@ -100,10 +100,19 @@ public class ComboCounter : MonoBehaviour
 
     public List<int> PunchesThrown = new List<int>();
 
+    public bool Combo1_Visible = true;
+    public bool Combo2_Visible = true;
+    public bool Combo3_Visible = true;
+    public bool Combo4_Visible = true;
+    public bool Combo5_Visible = true;
+    public bool Combo6_Visible = true;
+    public bool Combo7_Visible = true;
+    public bool Combo8_Visible = true;
 
+    public GameObject ClearText = null;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
     {
         //foreach (int yes in Combo1)
         //{
@@ -129,6 +138,56 @@ public class ComboCounter : MonoBehaviour
 
     }
 
+    IEnumerator WaitThenChange(int yes)
+    {
+        ClearText.SetActive(true);
+
+        yield return new WaitForSeconds(0.8f);
+
+        ClearText.SetActive(false);
+        WhichComboAmICounting = yes;
+
+        if(yes == 1)
+        {
+            Combo1_Visible = true;
+        }
+
+        if (yes == 2)
+        {
+            Combo2_Visible = true;
+        }
+
+        if (yes == 3)
+        {
+            Combo3_Visible = true;
+        }
+
+        if (yes == 4)
+        {
+            Combo4_Visible = true;
+        }
+
+        if (yes == 5)
+        {
+            Combo5_Visible = true;
+        }
+
+        if (yes == 6)
+        {
+            Combo6_Visible = true;
+        }
+
+        if (yes == 7)
+        {
+            Combo7_Visible = true;
+        }
+
+        if (yes == 8)
+        {
+            Combo8_Visible = true;
+        }
+    }
+
 	
 	// Update is called once per frame
 	void Update () 
@@ -139,7 +198,16 @@ public class ComboCounter : MonoBehaviour
         ////CHECK FOR COMBO 1/////////////////////////////
 		if (WhichComboAmICounting == 1)
         {
-            ComboCard_1.SetActive(true);
+            if(Combo1_Visible == true)
+            {
+                ComboCard_1.SetActive(true);
+            }
+
+            if(Combo1_Visible == false)
+            {
+                ComboCard_1.SetActive(false);
+            }
+
 
             //are there things in the list?
             if(PunchesThrown.Count != 0)
@@ -156,8 +224,9 @@ public class ComboCounter : MonoBehaviour
                         if (PunchesThrown[1] == Combo1[1])
                         {
                             Combo_1_1.GetComponent<Image>().color = Color.white;
-                            WhichComboAmICounting = 2;
-                            ComboCard_1.SetActive(false);
+                            StartCoroutine("WaitThenChange", 2);
+                            //ComboCard_1.SetActive(false);
+                            Combo1_Visible = false;
                             //cool! all punches in current list match up with Combo 1
                             //print("Combo 1 done! DORA!");
 
@@ -192,9 +261,18 @@ public class ComboCounter : MonoBehaviour
 
         if (WhichComboAmICounting == 2)
         {
-            ComboCard_2.SetActive(true);
+            if (Combo2_Visible == true)
+            {
+                ComboCard_2.SetActive(true);
+            }
 
-            if(PunchesThrown.Count != 0)
+            if (Combo2_Visible == false)
+            {
+                ComboCard_2.SetActive(false);
+            }
+
+
+            if (PunchesThrown.Count != 0)
             {
                 if (PunchesThrown[0] == Combo2[0])
                 {
@@ -212,16 +290,17 @@ public class ComboCounter : MonoBehaviour
                             if(PunchesThrown.Count >= 3)
                             {
                                 //NewComboCard Here
-                                Combo_2_1.GetComponent<Image>().color = Color.white;
-                                Combo_2_2.GetComponent<Image>().color = Color.white;
-                                WhichComboAmICounting = 3;
-                                ComboCard_2.SetActive(false);
+
 
                                 if (PunchesThrown[2] == Combo2[2])
                                 {
                                     //cool! all punches in current list match up with Combo 1
                                     //print("Combo 2 done! DORA RA!");
-
+                                    Combo_2_1.GetComponent<Image>().color = Color.white;
+                                    Combo_2_2.GetComponent<Image>().color = Color.white;
+                                    StartCoroutine("WaitThenChange", 3);
+                                    //ComboCard_1.SetActive(false);
+                                    Combo2_Visible = false;
                                     //switch sound with CRAZY D
                                     PunchSoundCon.DORARA = true;
                                     
@@ -266,7 +345,16 @@ public class ComboCounter : MonoBehaviour
 
         if (WhichComboAmICounting == 3)
         {
-            ComboCard_3.SetActive(true);
+            if (Combo3_Visible == true)
+            {
+                ComboCard_3.SetActive(true);
+            }
+
+            if (Combo3_Visible == false)
+            {
+                ComboCard_3.SetActive(false);
+            }
+
             if (PunchesThrown.Count != 0)
             {
                 if (PunchesThrown[0] == Combo3[0])
@@ -286,8 +374,9 @@ public class ComboCounter : MonoBehaviour
 
                                 Combo_3_1.GetComponent<Image>().color = Color.white;
                                 Combo_3_2.GetComponent<Image>().color = Color.white;
-                                WhichComboAmICounting = 4;
-                                ComboCard_3.SetActive(false);
+                                StartCoroutine("WaitThenChange", 4);
+                                //ComboCard_1.SetActive(false);
+                                Combo3_Visible = false;
 
                                 if (PunchesThrown[2] == Combo3[2])
                                 {
@@ -336,7 +425,16 @@ public class ComboCounter : MonoBehaviour
         ///////////////////////////////////////////////////////////////////
         if (WhichComboAmICounting == 4)
         {
-            ComboCard_4.SetActive(true);
+            if (Combo4_Visible == true)
+            {
+                ComboCard_4.SetActive(true);
+            }
+
+            if (Combo4_Visible == false)
+            {
+                ComboCard_4.SetActive(false);
+            }
+
 
             if (PunchesThrown.Count != 0)
             {
@@ -367,8 +465,9 @@ public class ComboCounter : MonoBehaviour
                                             Combo_4_1.GetComponent<Image>().color = Color.white;
                                             Combo_4_2.GetComponent<Image>().color = Color.white;
                                             Combo_4_3.GetComponent<Image>().color = Color.white;
-                                            WhichComboAmICounting = 5;
-                                            ComboCard_4.SetActive(false);
+                                            StartCoroutine("WaitThenChange", 5);
+                                            //ComboCard_1.SetActive(false);
+                                            Combo4_Visible = false;
 
                                             //cool! all punches in current list match up with Combo 1
                                             //print("Combo 3 done! DORA RA RA!");
@@ -430,7 +529,16 @@ public class ComboCounter : MonoBehaviour
         //////////////////////////////////////////////////////////////////////
         if (WhichComboAmICounting == 5)
         {
-            ComboCard_5.SetActive(true);
+            if (Combo5_Visible == true)
+            {
+                ComboCard_5.SetActive(true);
+            }
+
+            if (Combo5_Visible == false)
+            {
+                ComboCard_5.SetActive(false);
+            }
+
 
             if (PunchesThrown.Count != 0)
             {
@@ -461,8 +569,9 @@ public class ComboCounter : MonoBehaviour
                                             Combo_5_1.GetComponent<Image>().color = Color.white;
                                             Combo_5_2.GetComponent<Image>().color = Color.white;
                                             Combo_5_3.GetComponent<Image>().color = Color.white;
-                                            WhichComboAmICounting = 6;
-                                            ComboCard_5.SetActive(false);
+                                            StartCoroutine("WaitThenChange", 6);
+                                            //ComboCard_1.SetActive(false);
+                                            Combo5_Visible = false;
 
                                             //cool! all punches in current list match up with Combo 1
                                             // print("Combo 3 done! DORA RA RA!");
@@ -523,7 +632,16 @@ public class ComboCounter : MonoBehaviour
         ////////////////////////////////////////////////////////////////////////
         if (WhichComboAmICounting == 6)
         {
-            ComboCard_6.SetActive(true);
+            if (Combo6_Visible == true)
+            {
+                ComboCard_6.SetActive(true);
+            }
+
+            if (Combo6_Visible == false)
+            {
+                ComboCard_6.SetActive(false);
+            }
+
 
             if (PunchesThrown.Count != 0)
             {
@@ -552,8 +670,9 @@ public class ComboCounter : MonoBehaviour
                                             Combo_6_1.GetComponent<Image>().color = Color.white;
                                             Combo_6_2.GetComponent<Image>().color = Color.white;
                                             Combo_6_3.GetComponent<Image>().color = Color.white;
-                                            WhichComboAmICounting = 7;
-                                            ComboCard_6.SetActive(false);
+                                            StartCoroutine("WaitThenChange", 7);
+                                            //ComboCard_1.SetActive(false);
+                                            Combo6_Visible = false;
 
                                             //cool! all punches in current list match up with Combo 1
                                             //print("Combo 3 done! DORA RA RA!");
@@ -614,7 +733,16 @@ public class ComboCounter : MonoBehaviour
         ///////////////////////////////////////////////////////////////////
         if (WhichComboAmICounting == 7)
         {
-            ComboCard_7.SetActive(true);
+            if (Combo7_Visible == true)
+            {
+                ComboCard_7.SetActive(true);
+            }
+
+            if (Combo7_Visible == false)
+            {
+                ComboCard_7.SetActive(false);
+            }
+
 
             if (PunchesThrown.Count != 0)
             {
@@ -636,8 +764,9 @@ public class ComboCounter : MonoBehaviour
                                 {
                                     Combo_7_1.GetComponent<Image>().color = Color.white;
                                     Combo_7_2.GetComponent<Image>().color = Color.white;
-                                    WhichComboAmICounting = 8;
-                                    ComboCard_7.SetActive(false);
+                                    StartCoroutine("WaitThenChange", 8);
+                                    //ComboCard_1.SetActive(false);
+                                    Combo7_Visible = false;
                                     //cool! all punches in current list match up with Combo 1
                                     //print("Combo 3 done! DORA RA RA!");
 
@@ -684,7 +813,16 @@ public class ComboCounter : MonoBehaviour
         //////////////////////////////////////////////////////////////////////
         if (WhichComboAmICounting == 8)
         {
-            ComboCard_8.SetActive(true);
+            if (Combo8_Visible == true)
+            {
+                ComboCard_8.SetActive(true);
+            }
+
+            if (Combo8_Visible == false)
+            {
+                ComboCard_8.SetActive(false);
+            }
+
 
             if (PunchesThrown.Count != 0)
             {
@@ -715,8 +853,9 @@ public class ComboCounter : MonoBehaviour
                                             Combo_8_1.GetComponent<Image>().color = Color.white;
                                             Combo_8_2.GetComponent<Image>().color = Color.white;
                                             Combo_8_3.GetComponent<Image>().color = Color.white;
-                                            WhichComboAmICounting = 1;
-                                            ComboCard_8.SetActive(false);
+                                            StartCoroutine("WaitThenChange", 1);
+                                            //ComboCard_1.SetActive(false);
+                                            Combo8_Visible = false;
                                             //cool! all punches in current list match up with Combo 1
                                             //print("Combo 3 done! DORA RA RA!");
 
